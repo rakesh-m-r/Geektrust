@@ -1,0 +1,93 @@
+
+@import './../styles.scss';
+.cart-card{
+  display: grid;
+  grid-template-columns: 25% 25% auto auto;
+  grid-column-gap:1rem ;
+  align-items:center;
+  justify-content: space-between;
+  grid-template-rows: auto;
+  border: $border;
+  width: calc(100vw-2rem);
+  border-radius: .5rem;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: $primary-color;
+  &-title{
+    color: $primary-font-color;
+    font-weight: bold;
+    margin: 0 0 .5rem;
+    grid-column: 2;
+  }
+  &-image{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    grid-column: 1;
+  }
+  .wrapper{
+    display: flex;
+    flex-direction: column;
+  &-price{
+    color: $primary-font-color;
+    font-weight: 500;
+    margin: .5rem 0;
+  }
+}
+  .info{
+    font-style: italic;
+    margin: .5rem 0rem;
+    font-size: 1rem;
+    color: $secondary-font-color;
+  }
+  .item-count .wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    .count{
+      color: $primary-font-color;
+      margin: 0 .5rem;
+      font-weight: 600;
+    }
+    .count-btn{
+      border-radius: 50%;
+      border: $border;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      
+      &:disabled{
+        cursor: not-allowed;
+        opacity: .25;
+      }
+    }
+  }
+  &-btn{
+      background-color: $secondary-font-color;
+      border: $border;
+      padding: .5rem;
+      border-radius: .5rem;
+      color: $primary-font-color;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      &-link{
+        background: none;
+        width: 100%;
+        align-items: center;
+        border: none;
+        font-weight: bold;
+        color: $primary-font-color;
+        text-transform: uppercase;
+      }
+  }
+  &-delete{
+    border: $border;
+    border-radius: .5rem;
+    cursor: pointer;
+    width: fit-content;
+  }
+}

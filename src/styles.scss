@@ -1,0 +1,31 @@
+$primary-color: #FFFFFF;
+$primary-font-color: #32225a;
+$secondary-font-color: #c98fa5;
+$border: 1px solid #dce4ec;
+body{
+  padding: 0;
+  margin: 0;
+}
+.heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: $border;
+  background: $primary-color;
+  &-title{
+    font-weight: bold;
+    color: $primary-font-color;
+    font-size: 1.5rem;
+  }
+  &-options{
+    display: flex;
+    align-items: center;
+    &-item{
+      margin-left: 1rem;
+      & a{
+        text-decoration: none;
+        color: $primary-font-color;
+      }
+    }
+  }
+}
