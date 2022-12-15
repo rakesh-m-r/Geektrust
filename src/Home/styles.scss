@@ -114,6 +114,32 @@
       }
     }
   }
+  .error-wrapper{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    .heading{
+      margin: 1rem;
+      color:$primary-font-color;
+    }
+    .btn{
+      padding: 0.5rem 1rem ;
+      font-size:1rem;
+      font-weight:bold;
+    }
+  }
+  .loading-wrapper{
+    width: calc(100vw - 4rem);
+    height: calc(100vh - 6.5rem);
+    @media (min-width:1200px){
+      width:1200px;
+    }
+    height:100%;
+    display: grid;
+    align-items:center;
+    justify-content:center;
+
+  }
 }
 .btn{
   background-color: $secondary-font-color;
@@ -126,3 +152,4 @@
       text-transform: uppercase;
       cursor: pointer;
 }
+

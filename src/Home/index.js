@@ -13,6 +13,8 @@ const Home = () => {
   const [filterApplied, setFilterApplied] = useState();
   var [tempItems, setTempItems] = useState([]);
   const [search, setSearch] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   var filterToggle = false;
   //Toggle function for filter
   var filterToggler = () => {
@@ -25,11 +27,21 @@ const Home = () => {
   };
   //Fetching the list of items from API initially
   useEffect(() => {
-    axios.get(APIEndPoint).then((response) => {
-      setItems(response.data);
-      setTempItems(items);
-    });
+    setLoading(true);
+    axios
+      .get(APIEndPoint)
+      .then((response) => {
+        setItems(response.data);
+        setTempItems(items);
+      })
+      .catch(() => {
+        setError("Some error occurred. Retry after some time.");
+      });
   }, []);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [items, error]);
 
   useEffect(() => {
     setTempItems(items);
@@ -45,7 +57,7 @@ const Home = () => {
       } else {
         Object.defineProperty(filter, pair[0], {
           value: [pair[1]],
-          writable: true
+          writable: true,
         });
       }
     }
@@ -109,6 +121,31 @@ const Home = () => {
     setTempItems(items);
     applyFilters(document.getElementById("filters"));
   }, [search, filterApplied]);
+
+  if (loading)
+    return (
+      <div className="home">
+        <div className="loading-wrapper">
+          <box-icon
+            size="3rem"
+            animation="burst"
+            name="circle"
+            color="#0b294e"
+          ></box-icon>
+        </div>
+      </div>
+    );
+  if (error)
+    return (
+      <div className="home">
+        <div className="error-wrapper">
+          <h1 className="heading">{error}</h1>
+          <button className="btn" onClick={() => window.location.reload()}>
+            Retry
+          </button>
+        </div>
+      </div>
+    );
 
   return (
     <div className="home">
