@@ -129,8 +129,12 @@
     }
   }
   .loading-wrapper{
-    width: 100vw;
-    height: 100vh;
+    width: calc(100vw - 4rem);
+    height: calc(100vh - 6.5rem);
+    @media (min-width:1200px){
+      width:1200px;
+    }
+    height:100%;
     display: grid;
     align-items:center;
     justify-content:center;
