@@ -6,7 +6,8 @@ import "./styles.scss";
 const Cart = () => {
   const { cart } = useCart();
   return (
-    <>
+    <div className="cart-wrapper">
+      {" "}
       {Object.values(cart)?.length === 0 ? (
         <div className="wrapper-col">
           <p className="no-data"> No Items in Cart.</p>
@@ -37,7 +38,7 @@ const Cart = () => {
           </div>
         </>
       )}{" "}
-    </>
+    </div>
   );
 };
 

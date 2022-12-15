@@ -1,4 +1,9 @@
 @import './../styles.scss';
+.cart-wrapper{
+  @media (min-width:1200px){
+    width:1200px;
+  }
+}
 .sub-heading{
   font-size: 1.25rem;
   margin: 1rem 1rem 0;
